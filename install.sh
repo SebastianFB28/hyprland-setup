@@ -29,3 +29,4 @@ echo "============================================="
 echo "  ✅ Instalación de paquetes completa."
 echo "  (Paso 2 - enlazar configs - pendiente de implementar)"
 echo "============================================="
+
