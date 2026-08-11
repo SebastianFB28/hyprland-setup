@@ -21,7 +21,6 @@ PACKAGES=(
     blueman        # bluetooth (blueman-manager)
     pavucontrol    # pulseaudio (click)
     swaync         # custom/notification (swaync-client)
-    wlogout        # custom/power (menú de apagado)
     libnotify      # notify-send (click derecho del reloj)
     zsh            # shell (requerido por Oh My Zsh)
 )
@@ -31,6 +30,7 @@ PACKAGES=(
 # -----------------------------------------------------
 AUR_PACKAGES=(
     waypaper
+    wlogout        # custom/power (menú de apagado) — solo está en AUR
 )
 
 TOTAL=$(( ${#PACKAGES[@]} + ${#AUR_PACKAGES[@]} ))
