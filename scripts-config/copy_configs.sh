@@ -39,7 +39,10 @@ copy_app_config() {
     local mode="${3:-}"
     local app_name
     app_name="$(basename "$source_dir")"
-    local backup_dir="${target_dir}-backup-$(date +%Y%m%d-%H%M%S)"
+    # Todos los respaldos van centralizados aquí, nunca "al lado" del
+    # destino — si el destino es $HOME (como zsh), "${target_dir}-backup"
+    # quedaría en /home/, fuera del control del usuario.
+    local backup_dir="$HOME/.hyprland-setup-backups/${app_name}-$(date +%Y%m%d-%H%M%S)"
     local backed_up=false
 
     echo "==> $app_name"
