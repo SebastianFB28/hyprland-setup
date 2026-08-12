@@ -32,6 +32,7 @@ PACKAGES=(
     ttf-jetbrains-mono-nerd   # iconos de Waybar (glifos Nerd Font)
     hyprpaper                 # backend alterno de fondo de pantalla
     awww                      # backend real que usa tu config.ini de waypaper
+    nwg-look                  # ajustes GTK (temas, iconos, cursor, fuente)
 )
 
 # -----------------------------------------------------
@@ -41,6 +42,7 @@ AUR_PACKAGES=(
     waypaper-git                # waypaper estable (2.7) no soporta awww todavía
     wlogout                    # custom/power (menú de apagado) — solo está en AUR
     pokemon-colorscripts-git   # sprites de Pokémon al abrir terminal
+    catppuccin-gtk-theme-frappe # tema GTK, incluye la variante yellow
 )
 
 TOTAL=$(( ${#PACKAGES[@]} + ${#AUR_PACKAGES[@]} ))
