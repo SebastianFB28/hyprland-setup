@@ -1,0 +1,37 @@
+/* Importamos tus variables de Catppuccin */
+@import 'mocha.css';
+
+/* Elimina el cuadro blanco por defecto */
+* {
+    outline: none;
+}
+
+window {
+    margin: 0px;
+    /* MARCO AZUL MOCHA: Subimos a 3px para que se note más y usamos su color real (#89b4fa) */
+    border: 3px solid #89b4fa; 
+    background-color: rgba(30, 30, 46, 0.90; /* Fondo transparente al 70% */
+    border-radius: 11px;
+}
+
+/* Forzamos cajas internas transparentes */
+#outer-box, #inner-box, #scroll {
+    background-color: transparent;
+    border-radius: 11px;
+}
+
+#input {
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    color: @text;
+    background-color: @surface0;
+    border-radius: 11px;
+}
+
+/* CONTROL DE INTENSIDAD DEL ROSADO (Selección del teclado) */
+#entry:selected {
+    /* 245, 194, 231 es el Rosa Mocha. El 0.40 es la intensidad (puedes variarlo de 0.10 a 1.0) */
+	background-color: rgba(245, 194, 231, 0.50);
+    border-radius: 11px;
+}

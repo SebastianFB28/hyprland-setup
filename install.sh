@@ -17,16 +17,16 @@ echo ""
 echo "==> Paso 1/2: Instalando paquetes..."
 bash "$SCRIPT_DIR/scripts-config/install_packages.sh"
 
+
 # -----------------------------------------------------
 # 2) Colocar los archivos de configuración
 # -----------------------------------------------------
-# echo ""
-# echo "==> Paso 2/2: Enlazando archivos de configuración..."
-# bash "$SCRIPT_DIR/scripts-config/link_configs.sh"
-
+echo ""
+echo "==> Paso 2/2: Copiando archivos de configuración..."
+bash "$SCRIPT_DIR/scripts-config/copy_configs.sh"
+ 
 echo ""
 echo "============================================="
-echo "  ✅ Instalación de paquetes completa."
-echo "  (Paso 2 - enlazar configs - pendiente de implementar)"
+echo "  ✅ Setup completo. Reinicia Hyprland para aplicar los cambios."
 echo "============================================="
-
+ 

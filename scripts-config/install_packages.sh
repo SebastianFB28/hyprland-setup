@@ -23,6 +23,12 @@ PACKAGES=(
     swaync         # custom/notification (swaync-client)
     libnotify      # notify-send (click derecho del reloj)
     zsh            # shell (requerido por Oh My Zsh)
+    micro          # editor de texto de terminal
+    eza            # reemplazo moderno de ls (alias ls/ll/lt/la)
+    fzf            # buscador difuso en terminal
+    bat            # reemplazo de cat con resaltado de sintaxis
+    starship       # prompt de shell personalizable
+    fastfetch      # info del sistema al iniciar terminal
 )
 
 # -----------------------------------------------------
@@ -30,7 +36,8 @@ PACKAGES=(
 # -----------------------------------------------------
 AUR_PACKAGES=(
     waypaper
-    wlogout        # custom/power (menú de apagado) — solo está en AUR
+    wlogout                    # custom/power (menú de apagado) — solo está en AUR
+    pokemon-colorscripts-git   # sprites de Pokémon al abrir terminal
 )
 
 TOTAL=$(( ${#PACKAGES[@]} + ${#AUR_PACKAGES[@]} ))
@@ -175,5 +182,37 @@ else
     echo "✅ Oh My Zsh instalado correctamente."
 fi
 
-echo ""
-echo "ℹ️  Para hacer zsh tu shell por defecto, corre manualmente: chsh -s \$(which zsh)"
+# -----------------------------------------------------
+# Plugins de Oh My Zsh que tu .zshrc requiere
+# -----------------------------------------------------
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# "git" viene incluido con Oh My Zsh, los otros dos son plugins externos
+# que hay que clonar manualmente en $ZSH_CUSTOM/plugins/.
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+    echo "==> Instalando plugin zsh-autosuggestions..."
+    git clone https://github.com/zsh-users/zsh-autosuggestions \
+        "$ZSH_CUSTOM/plugins/zsh-autosuggestions" > /tmp/install_zsh-autosuggestions.log 2>&1
+fi
+
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+    echo "==> Instalando plugin zsh-syntax-highlighting..."
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting \
+        "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" > /tmp/install_zsh-syntax-highlighting.log 2>&1
+fi
+
+# -----------------------------------------------------
+# Hacer zsh el shell por defecto, si todavía no lo es
+# -----------------------------------------------------
+if [ "$SHELL" != "$(command -v zsh)" ]; then
+    echo ""
+    echo "==> Cambiando shell por defecto a zsh..."
+    if chsh -s "$(command -v zsh)"; then
+        echo "✅ Shell por defecto cambiado a zsh (aplica al próximo inicio de sesión)."
+    else
+        echo "⚠️  No se pudo cambiar el shell automáticamente. Corre manualmente: chsh -s \$(which zsh)"
+    fi
+else
+    echo "✅ zsh ya es tu shell por defecto."
+fi

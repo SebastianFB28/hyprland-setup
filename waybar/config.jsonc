@@ -1,0 +1,129 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 45, 
+    "spacing": 0,
+    "exclusive": true,
+
+    // Distribución de los tres grandes bloques
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "cpu", "memory", "custom/gpu", "temperature"],
+    "modules-center": ["custom/music", "clock"], // <-- ¡Corregido aquí!
+    "modules-right": ["tray", "network", "bluetooth", "pulseaudio", "battery", "custom/notification", "custom/power"],
+
+    // --- BLOQUE IZQUIERDO: SISTEMA Y ESCRITORIOS ---
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "wofi --show drun",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{name}",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        }
+    },
+    "cpu": {
+        "interval": 2,
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 2,
+        "format": " {percentage}%"
+    },
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "format": "󰢮 {}%",
+        "interval": 2,
+        "tooltip": false
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+
+    // --- BLOQUE CENTRAL: MÚSICA Y RELOJ (BLINDADO) ---
+    "custom/music": {
+        "format": "󰎆 {}",
+        "escape": true,
+        "interval": 2,
+        "exec": "playerctl metadata --format '{{title}} - {{artist}}' 2>/dev/null",
+        "exec-if": "playerctl status 2>/dev/null",
+        "max-length": 45,
+        "on-click": "playerctl play-pause",
+        "tooltip": false
+    },
+    "clock": {
+        "format": " {:%I:%M %p}", 
+        "format-alt": "󰸗 {:%A, %d de %B}",
+        "tooltip": false,
+        "on-click-right": "notify-send '🗓️ Calendario' \"<tt>$(cal)</tt>\""
+    },
+
+    // --- BLOQUE DERECHO: TRAY, CONECTIVIDAD, ENERGÍA ---
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰀂",
+        "format-disconnected": "󰤮",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format-wifi": "Señal: {signalStrength}% - {essid}",
+        "on-click": "kitty -e nmtui"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "tooltip-format": "{controller_alias}\n{num_connections} conectados",
+        "on-click": "blueman-manager"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Mute",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    }, 
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}

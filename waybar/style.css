@@ -1,0 +1,188 @@
+@import "latte.css";
+
+* {
+    font-family: 'JetBrainsMonoNLNF', 'JetBrainsMono Nerd Font', sans-serif;
+    font-size: 15px; 
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+    margin: 5px 5px; 
+}
+
+/* --- BLOQUE 1: LANZADOR Y ESCRITORIOS --- */
+#custom-launcher {
+    color: @sky;
+    background-color: @surface0;
+    border-radius: 1rem 0px 0px 1rem;
+    padding: 0.5rem 1rem 0.5rem 1.2rem;
+    margin: 5px 0 5px 1rem;
+}
+
+#workspaces {
+    background-color: @surface0;
+    border-radius: 0px 1rem 1rem 0px;
+    margin: 5px 1rem 5px 0; 
+    padding: 0.2rem 0.5rem;
+}
+
+#workspaces button {
+    color: @overlay0;
+    border-radius: 1rem;
+    padding: 0.2rem 0.4rem;
+    margin: 0.2rem;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    color: @mauve;
+    background-color: @surface1;
+}
+
+/* --- BLOQUE 2: RECURSOS DEL SISTEMA --- */
+#cpu {
+    color: @sapphire;
+    background-color: @surface0;
+    border-radius: 1rem 0px 0px 1rem; 
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin: 5px 0;
+}
+
+#memory {
+    color: @green;
+    background-color: @surface0;
+    border-radius: 0; 
+    padding: 0.5rem;
+    margin: 5px 0;
+}
+
+#custom-gpu {
+    color: @mauve; 
+    background-color: @surface0;
+    border-radius: 0; 
+    padding: 0.5rem;
+    margin: 5px 0;
+}
+
+#temperature {
+    color: @peach;
+    background-color: @surface0;
+    border-radius: 0px 1rem 1rem 0px; 
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    margin: 5px 1rem 5px 0; 
+}
+
+/* --- BLOQUE CENTRAL: REPRODUCTOR mpris Y RELOJ --- */
+#mpris {
+    color: @pink;
+    background-color: @surface0;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 5px 0.5rem;
+}
+
+#mpris.playing {
+    color: @green;
+}
+
+#mpris.paused {
+    color: @overlay0;
+}
+
+#clock {
+    color: @blue;
+    background-color: @surface0;
+    border-radius: 1rem; 
+    padding: 0.5rem 1rem;
+    margin: 5px 0.5rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- BLOQUE DERECHO 1: TRAY --- */
+#tray {
+    background-color: @surface0;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 5px 1rem 5px 0;
+}
+
+/* --- BLOQUE DERECHO 2: RED, BT, AUDIO, BATERÍA --- */
+#network {
+    color: @teal;
+    background-color: @surface0;
+    border-radius: 1rem 0px 0px 1rem; 
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin: 5px 0;
+}
+
+#bluetooth {
+    color: @blue;
+    background-color: @surface0;
+    border-radius: 0; 
+    padding: 0.5rem;
+    margin: 5px 0;
+}
+
+#pulseaudio {
+    color: @maroon;
+    background-color: @surface0;
+    border-radius: 0; 
+    padding: 0.5rem;
+    margin: 5px 0;
+}
+
+#battery {
+    color: @green;
+    background-color: @surface0;
+    border-radius: 0px 1rem 1rem 0px; 
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    margin: 5px 1rem 5px 0;
+}
+#battery.charging { color: @green; }
+#battery.warning:not(.charging) { color: @red; }
+
+/* --- BLOQUE DERECHO 3: NOTIFICACIONES Y APAGADO --- */
+#custom-notification {
+    color: @yellow;
+    background-color: @surface0;
+    border-radius: 1rem 0px 0px 1rem; 
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin: 5px 0;
+}
+
+#custom-power {
+    color: @red;
+    background-color: @surface0;
+    border-radius: 0px 1rem 1rem 0px; 
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    margin: 5px 1rem 5px 0;
+}
+#custom-power:hover {
+    background-color: @surface1;
+}
+
+/* --- POPUP DEL CALENDARIO (ESTILO TARJETA PREMIUM) --- */
+#tooltip {
+    background-color: @base;
+    border: 2px solid @mauve;
+    border-radius: 1rem;
+    padding: 15px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+#tooltip label {
+    font-family: 'JetBrainsMonoNLNF', 'JetBrainsMono Nerd Font', sans-serif;
+    font-size: 14px;
+    color: @text;
+}
+
+#custom-music {
+    color: @pink;
+    background-color: @surface0;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 5px 0.5rem;
+}

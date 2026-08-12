@@ -1,0 +1,42 @@
+#----------------------------------------
+# ATAJOS SIMPLES DEL SISTEMA
+#---------------------------------------
+alias reiniciar='sudo reboot'
+alias apagar='sudo poweroff'
+#--------------------------------------
+# ATAJOS PARA UBICACIONES DE TRABAJO
+#-------------------------------------
+#-------------------------------------
+# ATAJOS PARA ARCHIVOS DE CONFIGURACIÓN
+# (HYPRLAND, ZSHRC, MÁS)
+#-------------------------------------
+# -------------CONSOLA----------------
+alias atajos-consola='micro ~/.zsh_aliases'
+alias config-terminal='micro ~/.zshrc'
+#--------------WAYBAR----------------
+alias config-waybar='nano ~/.config/waybar/config.jsonc'
+alias config-waybar-styles='nano ~/.config/waybar/style.css'
+#--------------HYPRLAND--------------
+alias config-hyprland='nano ~/.config/hypr/hyprland.conf'
+alias config-ventanas-waybar='nano ~/.config/hypr/rules.conf'
+alias config-monitores='nano ~/.config/hypr/monitors.conf'
+alias config-atajos-teclado='nano ~/.config/hypr/keybinds.conf'
+#-------------FASTFETCH-------------
+alias config-fastfetch='nano ~/.config/fastfetch/config.jsonc'
+#-------------CONFIG SWWW-----------------
+alias config-sww='nano ~/.local/bin/cambiar_fondo.sh'
+#------------WOFI------------------
+alias config-wofi='nano ~/.config/wofi/config'
+alias config-wofi-style='nano ~/.config/wofi/style.css'
+#-----------CONEXIONES SSH-----------------------
+#--------------------------------------
+# REEMPLAZOS MODERNOS CON EZA
+#-------------------------------------
+# Reemplazo básico
+alias ls='eza'
+# Vista detallada con iconos, permisos, tamaño, usuario y estado de Git
+alias ll='eza -lag --icons --git'
+# Vista de árbol (nivel 2 de profundidad) para ver la estructura de carpetas
+alias lt='eza --tree --level=2'
+# Mostrar todos los archivos (incluyendo ocultos)
+alias la='eza -a'

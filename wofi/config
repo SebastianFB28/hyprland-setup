@@ -1,0 +1,10 @@
+allow_images=true
+image_size=40
+insensitive=true
+# Ancho ampliado (eje X)
+width=700
+# Altura mantenida (eje Y)
+height=400
+hide_scroll=true
+prompt=Buscando en el sistema...
+no_actions=true
