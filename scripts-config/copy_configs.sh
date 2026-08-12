@@ -26,6 +26,8 @@ APPS=(
     "kitty:$HOME/.config/kitty"
     "starship:$HOME/.config"
     "zsh:$HOME"
+    "waypaper:$HOME/.config/waypaper"
+    "walls-catppuccin-mocha:$HOME/Wallpaper/walls-catppuccin-mocha"
     "scripts:$HOME/.local/bin:exec"
 )
 

@@ -29,13 +29,16 @@ PACKAGES=(
     bat            # reemplazo de cat con resaltado de sintaxis
     starship       # prompt de shell personalizable
     fastfetch      # info del sistema al iniciar terminal
+    ttf-jetbrains-mono-nerd   # iconos de Waybar (glifos Nerd Font)
+    hyprpaper                 # backend alterno de fondo de pantalla
+    awww                      # backend real que usa tu config.ini de waypaper
 )
 
 # -----------------------------------------------------
 # Paquetes de AUR (necesitan yay o paru)
 # -----------------------------------------------------
 AUR_PACKAGES=(
-    waypaper
+    waypaper-git                # waypaper estable (2.7) no soporta awww todavía
     wlogout                    # custom/power (menú de apagado) — solo está en AUR
     pokemon-colorscripts-git   # sprites de Pokémon al abrir terminal
 )
